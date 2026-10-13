@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consiliere pentru români plecați de curând</title>
+<style>
+:root{
+  --bg:#faf8f5; --card:#fff; --text:#2b2b2b; --muted:#6b6b6b;
+  --accent:#2f5d50; --accent2:#c97b4a; --border:#e6e1da;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  box-sizing:border-box;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1b1b1b; --card:#242424; --text:#ececec; --muted:#a6a6a6;
+    --accent:#6fae9b; --accent2:#e0975f; --border:#3a3a3a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1b1b1b; --card:#242424; --text:#ececec; --muted:#a6a6a6;
+  --accent:#6fae9b; --accent2:#e0975f; --border:#3a3a3a;
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:-apple-system,Georgia,"Segoe UI",sans-serif;
+  line-height:1.55;
+}
+.wrap{max-width:640px; margin:0 auto; padding:32px 20px 60px;}
+header{text-align:center; margin-bottom:28px;}
+header p.tag{color:var(--accent); font-weight:600; letter-spacing:.03em; margin:0 0 10px; font-size:14px; text-transform:uppercase;}
+h1{font-size:28px; line-height:1.3; margin:0 0 14px;}
+.lead{color:var(--muted); font-size:17px; margin:0;}
+.card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin:20px 0;}
+h2{font-size:19px; margin:0 0 10px;}
+ul{margin:0; padding-left:20px;}
+li{margin-bottom:8px;}
+.offer{border:1px solid var(--accent); background:color-mix(in srgb, var(--accent) 6%, var(--card));}
+.offer h2{color:var(--accent);}
+form{display:flex; flex-direction:column; gap:12px;}
+label{font-size:14px; color:var(--muted);}
+input[type=text], input[type=email], textarea{
+  width:100%; padding:11px 12px; border:1px solid var(--border); border-radius:8px;
+  background:var(--bg); color:var(--text); font-size:15px; font-family:inherit;
+}
+textarea{resize:vertical; min-height:70px;}
+.checkbox{display:flex; gap:8px; align-items:flex-start; font-size:13px; color:var(--muted);}
+.checkbox input{margin-top:3px;}
+button{
+  background:var(--accent); color:#fff; border:none; border-radius:8px;
+  padding:13px 18px; font-size:16px; font-weight:600; cursor:pointer; margin-top:4px;
+}
+button:active{opacity:.85;}
+.note{font-size:12px; color:var(--muted); text-align:center; margin-top:10px;}
+footer{text-align:center; font-size:12px; color:var(--muted); margin-top:30px;}
+#msg{display:none; text-align:center; padding:16px; background:var(--card); border:1px solid var(--accent); border-radius:10px; margin-top:12px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="tag">Primele luni într-o țară nouă</p>
+    <h1>Ai plecat de curând din România. E normal să nu fie deloc simplu.</h1>
+    <p class="lead">Consiliere psihologică pentru românii aflați în primele 3-6 luni de la mutarea într-o altă țară.</p>
+  </header>
+
+  <div class="card">
+    <h2>Recunoști ceva din toate astea?</h2>
+    <ul>
+      <li>Oboseala de a traduce constant, în cap, chiar și gândurile simple</li>
+      <li>Singurătatea de după ora 18, când treburile practice se termină</li>
+      <li>Senzația că ești „nou" peste tot, chiar și cu tine însuți</li>
+      <li>Nostalgia care apare brusc, fără avertisment, la un miros sau un cântec</li>
+      <li>Presiunea de a părea bine, ca să nu-i îngrijorezi pe cei de acasă</li>
+    </ul>
+  </div>
+
+  <div class="card offer">
+    <h2>Ce ofer concret</h2>
+    <p>Consiliere psihologică online, în română, gândită pentru perioada de adaptare.</p>
+    <ul>
+      <li>Prima discuție — gratuită, ca să ne cunoaștem și să vedem dacă ni se potrivește</li>
+      <li>Ritm stabilit împreună, în funcție de ce ai nevoie</li>
+      <li>Online, din orice fus orar, în limba română</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Spune-mi pe scurt ce te preocupă</h2>
+    <form id="leadForm">
+      <div>
+        <label for="nume">Nume (opțional)</label>
+        <input type="text" id="nume" name="nume">
+      </div>
+      <div>
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="gand">Un gând sau o situație pe care o treci acum (opțional)</label>
+        <textarea id="gand" name="gand"></textarea>
+      </div>
+      <label class="checkbox">
+        <input type="checkbox" id="consimt" required>
+        <span>Sunt de acord să fiu contactat/ă pe email în legătură cu acest mesaj. Datele sunt folosite exclusiv pentru acest scop, nu sunt stocate de terți și nu sunt distribuite mai departe.</span>
+      </label>
+      <button type="submit">Trimite</button>
+      <p class="note">Se deschide aplicația ta de email, cu mesajul pregătit — apasă doar „trimite" acolo.</p>
+    </form>
+    <div id="msg">Mulțumesc! Ți s-a deschis aplicația de email cu mesajul pregătit — trimite-l de acolo ca să ajungă.</div>
+  </div>
+
+  <footer>
+    Consiliere psihologică oferită sub supervizare profesională, conform reglementărilor în vigoare.<br>
+    Datele introduse în acest formular nu sunt stocate pe acest site.
+  </footer>
+</div>
+
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const nume = document.getElementById('nume').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const gand = document.getElementById('gand').value.trim();
+  const subject = encodeURIComponent('Solicitare consiliere - formular site');
+  const body = encodeURIComponent(
+    'Nume: ' + (nume || '-') + '\n' +
+    'Email: ' + email + '\n\n' +
+    'Gând/situație:\n' + (gand || '-')
+  );
+  window.location.href = 'mailto:andreiieduard@yahoo.com?subject=' + subject + '&body=' + body;
+  document.getElementById('msg').style.display = 'block';
+});
+</script>
+</body>
+</html>
